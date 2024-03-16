@@ -1,0 +1,11 @@
+{
+  "not-found": "المورد غير موجود",
+  "Hello {{name}}": "أهلا {{name}}, كيف حالك اليوم؟",
+  "unauthorized": "غير مصرح",
+  "access-forbidden": "ممنوع الوصول",
+  "server-error": "خطأ في الخادم الداخلي",
+  "sheet-load-success": "تم تحميل الملف بنجاح",
+  "sheet-load-failed": "خطأ فى تحميل الملف",
+  "row-add-success": "تم اضافة البيانات بنجاح",
+  "row-add-failed": "خطأ فى اضافة البيانات"
+}

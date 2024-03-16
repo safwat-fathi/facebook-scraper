@@ -1,0 +1,11 @@
+{
+  "not-found": "Resource not found",
+  "hello-{{name}}": "Hello {{name}}, how are you today?",
+  "unauthorized": "Unauthorized",
+  "access-forbidden": "Access forbidden",
+  "server-error": "Internal server error",
+  "sheet-load-success": "Sheet loaded successfully",
+  "sheet-load-failed": "Sheet load failed",
+  "row-add-success": "Row added successfully",
+  "row-add-failed": "Row add failed"
+}
