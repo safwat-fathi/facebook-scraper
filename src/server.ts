@@ -12,12 +12,14 @@ import i18n from "@/config/i18n.config";
 
 // routes
 import routes from "@/api/routes";
-import WebSocketServer from "websocket";
 import path from "path";
 
 dotenv.config();
 
 const app: Express = express();
+
+// remove X-Powered-By header in ExpressJS
+app.disable("x-powered-by");
 
 const PORT = <number>process.env.HTTP_SERVER_PORT || 8000;
 
@@ -66,13 +68,9 @@ if (process.env.NODE_ENV === "development") app.use(errorHandler);
 //   return qs.parse(str, { arrayLimit: 1000 });
 // });
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at ${PORT}`);
 });
-
-// websocket server
-const wss = new WebSocketServer(server);
-wss.init();
 
 // exceptions handlers
 process.on("uncaughtException", error => {
