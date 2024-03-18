@@ -15,6 +15,20 @@ class Scraper {
     try {
       this.browser = await puppeteer.launch();
       this.page = await this.browser.newPage();
+
+      // this.page.setDefaultNavigationTimeout(0);
+      // this.page.setDefaultTimeout(0);
+      this.page.setViewport({ width: 1920, height: 1080 });
+      this.page.setUserAgent(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+      );
+
+      this.browser.on("disconnected", () => {
+        console.log("Browser disconnected.");
+      });
+      // this.browser.on("targetchanged", () => {
+      // 	console.log("Target changed.");
+      // } );
     } catch (error) {
       console.error("Error initializing Puppeteer:", error);
     }
@@ -70,6 +84,19 @@ class Scraper {
     } catch (error) {
       console.error("Error getting search results:", error);
       return null;
+    }
+  }
+
+  // scroll down to load more results
+  public async loadMoreResults(): Promise<void> {
+    try {
+      if (!this.page) throw new Error("Browser or page not initialized.");
+      await this.page.evaluate(() => {
+        window.scrollBy(0, window.innerHeight);
+      });
+      await this.page.w;
+    } catch (error) {
+      console.error("Error loading more results:", error);
     }
   }
 
